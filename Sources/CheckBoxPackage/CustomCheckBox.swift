@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 12.0, *)
+@available(iOS 15.0, *)
 public struct CustomCheckBoxWithAction: View {
     var isChecked: Bool
     var text: String
@@ -25,7 +25,7 @@ public struct CustomCheckBoxWithAction: View {
                 Text(text)
                 Image(systemName: isChecked ? "checkmark.square.fill" : "square")
                     .resizable()
-                    .foregroundColor(.mint)
+                    .foregroundColor(Color(red: 75/255, green: 135/255, blue: 105/255))
                     .frame(width: 24, height: 24)
             }
         })
