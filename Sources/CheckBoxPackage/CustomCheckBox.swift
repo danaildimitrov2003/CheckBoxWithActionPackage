@@ -8,11 +8,16 @@
 import SwiftUI
 
 @available(macOS 12.0, *)
-struct CustomCheckBoxWithAction: View {
+public struct CustomCheckBoxWithAction: View {
     var isChecked: Bool
     var text: String
     var action: () -> Void
-    var body: some View {
+    public init(isChecked: Bool, text: String, action: @escaping () -> Void) {
+        self.isChecked = isChecked
+        self.text = text
+        self.action = action
+    }
+    public var body: some View {
         Button(action: {
             action()
         }, label: {
@@ -25,12 +30,5 @@ struct CustomCheckBoxWithAction: View {
             }
         })
         .buttonStyle(PlainButtonStyle())
-    }
-}
-
-@available(macOS 12.0, *)
-struct CustomCheckBoxWithAction_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomCheckBoxWithAction(isChecked: true, text: "Text", action: {})
     }
 }
